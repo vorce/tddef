@@ -11,7 +11,14 @@ Kex checks that your code is covered by tests. If it's not compilation will fail
 
 ## Example
 
-Ascii gif
+TODO: Ascii gif
+
+## Details
+
+Kex works by wrapping the `def` keyword in Elixir. Before allowing you to define your function it will
+check that you have a test for it.
+
+This little helper started as a project to learn more about macros in Elixir.
 
 ## Installation
 

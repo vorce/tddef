@@ -13,8 +13,8 @@ defmodule Kex do
   defmacro def(name, body) do
     # IO.inspect(binding(), label: "def args")
 
-    Kex.Check.TestFile.check!(__CALLER__, name)
-    Kex.Check.FunctionCall.check!(__CALLER__, name)
+    {:ok, meta} = Kex.Check.TestFile.check!(__CALLER__, name)
+    :ok = Kex.Check.FunctionCall.check!(__CALLER__, name, meta)
 
     quote do
       Kernel.def(unquote(name), unquote(body))

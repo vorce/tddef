@@ -8,21 +8,17 @@ defmodule Kex.Check.TestFile do
     caller_file_path = Macro.Env.location(caller)[:file]
     test_dir = Path.join(File.cwd!(), "test")
     test_file = test_file_of(caller_file_path)
+    test_file_paths = find_test_file_of(test_dir, test_file)
 
-    unless(
-      test_file_exists?(test_dir, test_file),
+    if(
+      test_file_paths == [],
       do:
         raise(
           "Can't find test file for #{caller_file_path}\nCreate a file called #{test_file} somewhere in the test directory"
         )
     )
 
-    :ok
-  end
-
-  defp test_file_exists?(test_dir, test_file) do
-    find_test_file_of(test_dir, test_file)
-    |> Enum.any?(&(&1 == true))
+    {:ok, [test_files: test_file_paths]}
   end
 
   def test_file_of(caller_file_path) do
@@ -33,10 +29,10 @@ defmodule Kex.Check.TestFile do
 
   defp find_test_file_of(root_dir, test_file) do
     with {:ok, paths} <- File.ls(root_dir) do
-      found? = Enum.find(paths, fn path -> Path.basename(path) == test_file end)
+      found_path = Enum.find(paths, fn path -> Path.basename(path) == test_file end)
 
-      if found? do
-        [true]
+      if found_path do
+        [Path.join(root_dir, found_path)]
       else
         paths
         |> Enum.map(&Path.join(root_dir, &1))
