@@ -1,4 +1,4 @@
-defmodule Kex.Check.TestFile do
+defmodule Tddef.Check.TestFile do
   @moduledoc """
   Checks that the file that a tddef definition is in also
   has a test file in the project.

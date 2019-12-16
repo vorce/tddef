@@ -1,4 +1,4 @@
-defmodule KexTest do
+defmodule TddefTest do
   use ExUnit.Case
-  doctest Kex
+  doctest Tddef
 end

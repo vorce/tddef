@@ -1,4 +1,4 @@
-defmodule Kex.Check.FunctionCall do
+defmodule Tddef.Check.FunctionCall do
   @moduledoc """
   Check that the function defined by def is called in a test.
   """
