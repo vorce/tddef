@@ -22,9 +22,7 @@ This little helper started as a project to learn more about macros in Elixir.
 
 ## Installation
 
-tddef is not yet on hex!
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+tddef is available in Hex, the package can be installed
 by adding `tddef` to your list of dependencies in `mix.exs`:
 
 ```elixir
@@ -35,7 +33,5 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
+Documentation is generated with [ExDoc](https://github.com/elixir-lang/ex_doc) and can
 be found at [https://hexdocs.pm/tddef](https://hexdocs.pm/tddef).
-
