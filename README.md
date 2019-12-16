@@ -20,6 +20,10 @@ check that you have a test for it.
 
 This little helper started as a project to learn more about macros in Elixir.
 
+### Rationale
+
+There was a thread on twitter about ideas for programming languages. Someone said that they would like to explore a language that forces you to write tests. I thought that was an interesting idea, and figured it could be implemented as a macro for Elixir.
+
 ## Installation
 
 tddef is available in Hex, the package can be installed
