@@ -15,14 +15,13 @@ TODO: Ascii gif
 
 ## Details
 
-tddef works by wrapping the `def` keyword in Elixir. Before allowing you to define your function it will
-check that you have a test for it.
+tddef works by wrapping/shadowing the `def` keyword in Elixir. When the code is compiled tddef will check that you have a test file, and that it contains code that calls your functions that uses tddef `def`.
 
 This little helper started as a project to learn more about macros in Elixir.
 
 ### Rationale
 
-There was a thread on twitter about ideas for programming languages. Someone said that they would like to explore a language that forces you to write tests. I thought that was an interesting idea, and figured it could be implemented as a macro for Elixir.
+There was a thread on twitter about ideas for programming languages. Someone said that they would like to explore a language that forces you to write tests. I thought that was an interesting idea, and figured it could be implemented as a PoC in a macro for Elixir.
 
 ## Installation
 
