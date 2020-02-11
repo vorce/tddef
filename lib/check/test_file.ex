@@ -1,7 +1,9 @@
 defmodule Tddef.Check.TestFile do
   @moduledoc """
-  Checks that the file that a tddef definition is in also
-  has a test file in the project.
+  Checks that the file that a `Tddef.def` definition is in also
+  has a corresponding test file in the project.
+
+  This is used internally by Tddef.
   """
 
   def check!(caller, _name) do

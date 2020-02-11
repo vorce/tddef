@@ -1,6 +1,8 @@
 defmodule Tddef.Check.FunctionCall do
   @moduledoc """
-  Check that the function defined by def is called in a test.
+  Check that the function defined by `def` is called in a test.
+
+  This is used internally by Tddef.
   """
 
   def check!(
@@ -31,6 +33,10 @@ defmodule Tddef.Check.FunctionCall do
     end
   end
 
+  @doc """
+  Tries to determine if a particular `fn_name` with `arity`
+  is called in the `ast`
+  """
   def function_called_in_ast?(ast, module_name, fn_name, arity) do
     ast
     |> find(module_name, fn_name, arity)

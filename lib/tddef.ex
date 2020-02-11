@@ -1,6 +1,8 @@
 defmodule Tddef do
   @moduledoc """
-  Documentation for Tddef.
+  Tddef is a macro that aims to guide you in the TDD process.
+  It will perform some compile time checks on any function you `def`
+  to ensure there is a test.
   """
 
   defmacro __using__(_opts) do
@@ -10,9 +12,22 @@ defmodule Tddef do
     end
   end
 
-  defmacro def(name, body) do
-    # IO.inspect(binding(), label: "def args")
+  @doc """
+  The main macro for Tddef.
 
+  Use this in any module you want assistance on
+  for doing TDD. It will check that your function is
+  called in a test.
+
+  Example:
+
+      use Tddef
+
+      def myfunction(foo) do
+        # ...
+      end
+  """
+  defmacro def(name, body) do
     {:ok, meta} = Tddef.Check.TestFile.check!(__CALLER__, name)
     :ok = Tddef.Check.FunctionCall.check!(__CALLER__, name, meta)
 
